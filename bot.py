@@ -1,7 +1,19 @@
+from flask import Flask
+import threading
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-bot = telebot.TeleBot("8366535498:AAHSkhXcVVfl3_U_XnY1avJWYPN2dYoHiHw")
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Bot is running"
+
+def run_flask():
+    app.run(host="0.0.0.0", port=10000)
+
+
+bot = telebot.TeleBot("8366535498:AAHwFUe0FdrnZwjKTVVKhX0Oz0mQFbtDR4c")
 
 # -------------------------
 # ВСЯ ТЕОРИЯ ЗДЕСЬ
@@ -290,5 +302,5 @@ def callback(call):
 # -------------------------
 # BOT RUN
 # -------------------------
-
+threading.Thread(target=run_flask).start()
 bot.polling(none_stop=True)
