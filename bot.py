@@ -283,7 +283,8 @@ def start(message):
 def callback(call):
     key = call.data
     text = theory.get(key, "Теория табылмады 😕")
-    bot.send_message(call.message.chat.id, text, parse_mode="Markdown")
+    bot.send_message(call.message.chat.id, text, parse_mode="HTML")
+
 
 
 # -------------------------
