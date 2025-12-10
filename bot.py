@@ -253,7 +253,7 @@ def menu_buttons():
         ("gpu", "🎮 Видеокарта"),
         ("bios", "🧬 BIOS / UEFI"),
         ("ishki_qurylgy", "🧿 Ішкі құрылғылар"),
-        ("syrtqy_quryltary", "📡 Сыртқы құрылғылар"),
+        ("syrtqy_qurylgy", "📡 Сыртқы құрылғылар"),
         ("zhad_turleri", "🧠 Жад түрлері"),
         ("classification", "📘 Сипатына қарай жіктелуі"),
         ("konfig_turleri", "🛠 Конфигурация түрлері"),
