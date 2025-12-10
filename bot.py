@@ -1,16 +1,6 @@
-from flask import Flask
-import threading
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return "Bot is running"
-
-def run_flask():
-    app.run(host="0.0.0.0", port=10000)
 
 
 bot = telebot.TeleBot("8366535498:AAHwFUe0FdrnZwjKTVVKhX0Oz0mQFbtDR4c")
@@ -286,21 +276,13 @@ def start(message):
         reply_markup=menu_buttons()
     )
 
-
-# -------------------------
-# CALLBACK — теория шығару
-# -------------------------
-
+# CALLBACK
 @bot.callback_query_handler(func=lambda call: True)
 def callback(call):
     key = call.data
     text = theory.get(key, "Теория табылмады 😕")
     bot.send_message(call.message.chat.id, text, parse_mode="HTML")
 
-
-
-# -------------------------
-# BOT RUN
-# -------------------------
-threading.Thread(target=run_flask).start()
+# RUN BOT
+bot.infinity_polling()
 bot.polling(none_stop=True)
